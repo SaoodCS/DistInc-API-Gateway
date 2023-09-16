@@ -7,7 +7,7 @@ on:
       - dev
 
 jobs:
-  distinc-api-gateway-ci-cd:
+  api-gateway-ci-cd:
     runs-on: ubuntu-latest
     steps:
     - name: Setup Phase - Checkout repository
