@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "serve-dev": "cd functions && npm run serve-dev",
+    "serve-prod": "cd functions && npm run serve-prod",
+    "serve-dev-to-local": "cd functions && npm run serve-dev-to-local",
+    "serve-prod-to-local": "cd functions && npm run serve-prod-to-local",
+    "serve-dev-to-deployed": "cd functions && npm run serve-dev-to-deployed",
+    "serve-prod-to-deployed": "cd functions && npm run serve-prod-to-deployed",
+    "deploy-dev": "cd functions && del .env && type .env.deploydev > .env && npm run build && firebase deploy --project [dev-project-id] --only functions:apiGateway",
+    "deploy-prod": "cd functions && del .env && type .env.deployprod > .env && npm run build && firebase deploy --project [prod-project-id] --only functions:apiGateway",
+    "prettify": "cd functions && npm run prettify",
+    "lint-ts": "cd functions && npm run lint-and-ts-errors",
+    "lint-fix": "cd functions && npm run lint-fix",
+    "install": "cd functions && npm install",
+    "test": "cd functions && npm run test",
+    "test-watch": "cd functions && npm run test-watch"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "private": true
+}
