@@ -1,4 +1,4 @@
-name: Firebase Microservices CI/CD
+name: DistInc API Gateway CI/CD
 
 on:
   push:
