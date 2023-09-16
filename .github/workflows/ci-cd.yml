@@ -1,4 +1,4 @@
-name: DistInc API Gateway CI/CD
+name: DistInc API Gateway CI/CD Pipeline
 
 on:
   push:
