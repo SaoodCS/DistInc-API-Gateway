@@ -24,7 +24,7 @@ export default async function gatewayRequestGet(
 	// Grab the APIKey from the env variables and add it to the header of the request:
 	const apiKey = process.env.API_KEY as string;
 	const header = new Headers();
-	header.append('Api-Key', apiKey);
+	header.append('api-key', apiKey);
 	header.append('Content-Type', 'application/json');
 
 	// Send the auth header to the microservice in order to access the user's uid and thus their data in firestore:
