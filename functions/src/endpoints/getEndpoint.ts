@@ -7,51 +7,46 @@ import microservices from '../utils/Microservices';
 import { resCodes } from './../utils/resCode';
 
 export default async function gatewayRequestGet(
-	req: express.Request,
-	res: express.Response,
+   req: express.Request,
+   res: express.Response,
 ): Promise<express.Response> {
-	//Check which microservice to send the request to:
-	const serviceForLocalTesting = 'testServiceEndpoint';
-	const serviceReq = isRunningLocally()
-		? serviceForLocalTesting
-		: (req.headers.microservice as string);
-	const serviceReqObj = ArrayOfObjects.objectWithVal(
-		microservices,
-		serviceReq,
-	) as IMicroservices;
-	const serviceUrl = serviceReqObj.url;
+   //Check which microservice to send the request to:
+   const serviceForLocalTesting = 'testServiceEndpoint';
+   const serviceReq = isRunningLocally()
+      ? serviceForLocalTesting
+      : (req.headers.microservice as string);
+   const serviceReqObj = ArrayOfObjects.objectWithVal(microservices, serviceReq) as IMicroservices;
+   const serviceUrl = serviceReqObj.url;
 
-	// Grab the APIKey from the env variables and add it to the header of the request:
-	const apiKey = process.env.API_KEY as string;
-	const header = new Headers();
-	header.append('api-key', apiKey);
-	header.append('Content-Type', 'application/json');
+   // Grab the APIKey from the env variables and add it to the header of the request:
+   const apiKey = process.env.API_KEY as string;
+   const header = new Headers();
+   header.append('api-key', apiKey);
+   header.append('Content-Type', 'application/json');
 
-	// Send the auth header to the microservice in order to access the user's uid and thus their data in firestore:
-	const authHeader = req.headers.authorization;
-	if (!authHeader) {
-		return res
-			.status(resCodes.BAD_REQUEST.code)
-			.send(
-				`${resCodes.BAD_REQUEST.prefix}: Missing Authorization Header`,
-			);
-	}
-	header.append('Authorization', authHeader);
+   // Send the auth header to the microservice in order to access the user's uid and thus their data in firestore:
+   const authHeader = req.headers.authorization;
+   if (!authHeader) {
+      return res
+         .status(resCodes.BAD_REQUEST.code)
+         .send(`${resCodes.BAD_REQUEST.prefix}: Missing Authorization Header`);
+   }
+   header.append('Authorization', authHeader);
 
-	// Send the request to the microservice:
-	try {
-		const response = await fetch(serviceUrl, {
-			method: 'GET',
-			headers: header,
-		});
-		if (!response.ok) {
-			const errorMessage = await response.text();
-			return res.status(response.status).send(errorMessage);
-		}
-		const jsonResponse = await response.text();
-		const parsedJsonResponse = JSON.parse(jsonResponse);
-		return res.status(resCodes.OK.code).send(parsedJsonResponse);
-	} catch (error) {
-		return res.send(error);
-	}
+   // Send the request to the microservice:
+   try {
+      const response = await fetch(serviceUrl, {
+         method: 'GET',
+         headers: header,
+      });
+      if (!response.ok) {
+         const errorMessage = await response.text();
+         return res.status(response.status).send(errorMessage);
+      }
+      const jsonResponse = await response.text();
+      const parsedJsonResponse = JSON.parse(jsonResponse);
+      return res.status(resCodes.OK.code).send(parsedJsonResponse);
+   } catch (error) {
+      return res.send(error);
+   }
 }

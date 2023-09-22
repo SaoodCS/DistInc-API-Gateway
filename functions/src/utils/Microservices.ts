@@ -1,12 +1,12 @@
 export interface IMicroservices {
-	service: string;
-	url: string;
-	los: number;
+   service: string;
+   url: string;
+   los: number;
 }
 
 const microservices: IMicroservices[] = [
-	{ service: 'testServiceEndpoint', url: process.env.TEST_SERVICE_ENDPOINT!, los: 0 },
-	{ service: 'registerUser', url: process.env.REGISTER_USER_SERVICE_ENDPOINT!, los: 0 },
+   { service: 'testServiceEndpoint', url: process.env.TEST_SERVICE_ENDPOINT!, los: 0 },
+   { service: 'registerUser', url: process.env.REGISTER_USER_SERVICE_ENDPOINT!, los: 0 },
 ];
 
 export default microservices;
