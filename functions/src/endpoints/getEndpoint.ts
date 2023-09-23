@@ -44,7 +44,7 @@ export default async function gatewayRequestGet(
          return res.status(response.status).send(data);
       }
       return res.status(resCodes.OK.code).send(data);
-   } catch (error) {
+   } catch (error: unknown) {
       return res.status(resCodes.INTERNAL_SERVER.code).send(error);
    }
 }
