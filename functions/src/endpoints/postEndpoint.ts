@@ -38,14 +38,12 @@ export default async function gatewayRequestPost(
          body: JSON.stringify(req.body),
          headers: header,
       });
+      const data = await response.json();
       if (!response.ok) {
-         const errorMessage = await response.text();
-         return res.status(response.status).send(errorMessage);
+         return res.status(response.status).send(data);
       }
-      const jsonResponse = await response.text();
-      const parsedJsonResponse = JSON.parse(jsonResponse);
-      return res.status(resCodes.OK.code).send(parsedJsonResponse);
-   } catch (error) {
-      return res.send(error);
+      return res.status(resCodes.OK.code).send(data);
+   } catch (error: unknown) {
+      return res.status(resCodes.INTERNAL_SERVER.code).send(error);
    }
 }
