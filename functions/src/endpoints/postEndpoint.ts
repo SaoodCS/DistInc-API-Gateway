@@ -18,7 +18,7 @@ export default async function gatewayRequestPost(
    }
 
    //Check which microservice to send the request to:
-   const serviceForLocalTesting = 'registerUser';
+   const serviceForLocalTesting = 'deleteUser';
    const serviceReq = isRunningLocally()
       ? serviceForLocalTesting
       : (req.headers.microservice as string);
