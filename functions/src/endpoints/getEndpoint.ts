@@ -11,7 +11,7 @@ export default async function gatewayRequestGet(
    res: express.Response,
 ): Promise<express.Response> {
    //Check which microservice to send the request to:
-   const serviceForLocalTesting = 'testServiceEndpoint';
+   const serviceForLocalTesting = 'setSavingsAccount';
    const serviceReq = isRunningLocally()
       ? serviceForLocalTesting
       : (req.headers.microservice as string);
