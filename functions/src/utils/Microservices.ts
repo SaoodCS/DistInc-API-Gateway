@@ -11,6 +11,7 @@ const microservices: IMicroservices[] = [
    { service: 'resetUser', url: process.env.RESET_USER_SERVICE_ENDPOINT!, los: 1 },
    { service: 'setSavingsAccount', url: process.env.SET_SAVINGSACCOUNT_SERVICE_ENDPOINT!, los: 1 },
    { service: 'getSavingsAccount', url: process.env.GET_SAVINGSACCOUNT_SERVICE_ENDPOINT!, los: 1 },
+   { service: 'deleteSavingsAccount', url: process.env.DELETE_SAVINGSACCOUNT_SERVICE_ENDPOINT!, los: 1 },
 ];
 
 export default microservices;
