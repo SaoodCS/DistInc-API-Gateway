@@ -12,6 +12,9 @@ const microservices: IMicroservices[] = [
    { service: 'setSavingsAccount', url: process.env.SET_SAVINGSACCOUNT_SERVICE_ENDPOINT!, los: 1 },
    { service: 'getSavingsAccount', url: process.env.GET_SAVINGSACCOUNT_SERVICE_ENDPOINT!, los: 1 },
    { service: 'deleteSavingsAccount', url: process.env.DELETE_SAVINGSACCOUNT_SERVICE_ENDPOINT!, los: 1 },
+   { service: 'setCurrentAccount', url: process.env.SET_CURRENTACCOUNT_SERVICE_ENDPOINT!, los: 1 },
+   { service: 'getCurrentAccount', url: process.env.GET_CURRENTACCOUNT_SERVICE_ENDPOINT!, los: 1 },
+   { service: 'deleteCurrentAccount', url: process.env.DELETE_CURRENTACCOUNT_SERVICE_ENDPOINT!, los: 1 },
 ];
 
 export default microservices;
