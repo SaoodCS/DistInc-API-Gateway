@@ -11,10 +11,24 @@ const microservices: IMicroservices[] = [
    { service: 'resetUser', url: process.env.RESET_USER_SERVICE_ENDPOINT!, los: 1 },
    { service: 'setSavingsAccount', url: process.env.SET_SAVINGSACCOUNT_SERVICE_ENDPOINT!, los: 1 },
    { service: 'getSavingsAccount', url: process.env.GET_SAVINGSACCOUNT_SERVICE_ENDPOINT!, los: 1 },
-   { service: 'deleteSavingsAccount', url: process.env.DELETE_SAVINGSACCOUNT_SERVICE_ENDPOINT!, los: 1 },
+   {
+      service: 'deleteSavingsAccount',
+      url: process.env.DELETE_SAVINGSACCOUNT_SERVICE_ENDPOINT!,
+      los: 1,
+   },
    { service: 'setCurrentAccount', url: process.env.SET_CURRENTACCOUNT_SERVICE_ENDPOINT!, los: 1 },
    { service: 'getCurrentAccount', url: process.env.GET_CURRENTACCOUNT_SERVICE_ENDPOINT!, los: 1 },
-   { service: 'deleteCurrentAccount', url: process.env.DELETE_CURRENTACCOUNT_SERVICE_ENDPOINT!, los: 1 },
+   {
+      service: 'deleteCurrentAccount',
+      url: process.env.DELETE_CURRENTACCOUNT_SERVICE_ENDPOINT!,
+      los: 1,
+   },
+   { service: 'setIncome', url: process.env.SET_INCOME_SERVICE_ENDPOINT!, los: 1 },
+   { service: 'getIncomes', url: process.env.GET_INCOME_SERVICE_ENDPOINT!, los: 1 },
+   { service: 'deleteIncome', url: process.env.DELETE_INCOME_SERVICE_ENDPOINT!, los: 1 },
+   { service: 'setExpense', url: process.env.SET_EXPENSE_SERVICE_ENDPOINT!, los: 1 },
+   { service: 'getExpenses', url: process.env.GET_EXPENSE_SERVICE_ENDPOINT!, los: 1 },
+   { service: 'deleteExpense', url: process.env.EXPENSE_INCOME_SERVICE_ENDPOINT!, los: 1 },
 ];
 
 export default microservices;
