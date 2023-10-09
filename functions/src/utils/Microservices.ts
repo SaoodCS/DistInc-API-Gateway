@@ -28,7 +28,7 @@ const microservices: IMicroservices[] = [
    { service: 'deleteIncome', url: process.env.DELETE_INCOME_SERVICE_ENDPOINT!, los: 1 },
    { service: 'setExpense', url: process.env.SET_EXPENSE_SERVICE_ENDPOINT!, los: 1 },
    { service: 'getExpenses', url: process.env.GET_EXPENSE_SERVICE_ENDPOINT!, los: 1 },
-   { service: 'deleteExpense', url: process.env.EXPENSE_INCOME_SERVICE_ENDPOINT!, los: 1 },
+   { service: 'deleteExpense', url: process.env.DELETE_EXPENSE_SERVICE_ENDPOINT!, los: 1 },
 ];
 
 export default microservices;

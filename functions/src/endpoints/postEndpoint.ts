@@ -18,7 +18,7 @@ export default async function gatewayRequestPost(
    }
 
    //Check which microservice to send the request to:
-   const serviceForLocalTesting = 'deleteSavingsAccount';
+   const serviceForLocalTesting = 'deleteExpense';
    const serviceReq = isRunningLocally()
       ? serviceForLocalTesting
       : (req.headers.microservice as string);
@@ -30,7 +30,7 @@ export default async function gatewayRequestPost(
    const header = new Headers();
    header.append('api-key', apiKey);
    header.append('Content-Type', 'application/json');
-   
+
    // Send the auth header to the microservice in order to access the user's uid and thus their data in firestore:
    const authHeader = req.headers.authorization;
    if (!authHeader) {
