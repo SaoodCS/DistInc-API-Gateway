@@ -31,6 +31,7 @@ export default async function gatewayRequestGet(
          return res
             .status(resCodes.BAD_REQUEST.code)
             .send(`${resCodes.BAD_REQUEST.prefix}: Missing Authorization Header`);
+            //TODO: for some reason, this error message shows up in the client as "Error: Unknown Error" rather than the actual error message - fix this issue
       }
       header.append('Authorization', authHeader);
    }
