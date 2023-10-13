@@ -37,8 +37,7 @@ export default async function gatewayRequestPost(
       if (!authHeader) {
          return res
             .status(resCodes.BAD_REQUEST.code)
-            .send(`${resCodes.BAD_REQUEST.prefix}: Missing Authorization Header`);
-            //TODO: for some reason, this error message shows up in the client as "Error: Unknown Error" rather than the actual error message - fix this issue
+            .send({error: `${resCodes.BAD_REQUEST.prefix}: Missing Authorization Header`});
       }
       header.append('Authorization', authHeader);
    }
@@ -51,7 +50,6 @@ export default async function gatewayRequestPost(
          headers: header,
       });
       const data = await response.json();
-      console.log(data);
       if (!response.ok) {
          return res.status(response.status).send(data);
       }
