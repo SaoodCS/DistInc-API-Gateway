@@ -37,7 +37,7 @@ export default async function gatewayRequestPost(
       if (!authHeader) {
          return res
             .status(resCodes.BAD_REQUEST.code)
-            .send({error: `${resCodes.BAD_REQUEST.prefix}: Missing Authorization Header`});
+            .send({ error: `${resCodes.BAD_REQUEST.prefix}: Missing Authorization Header` });
       }
       header.append('Authorization', authHeader);
    }
