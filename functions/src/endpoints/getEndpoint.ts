@@ -26,12 +26,14 @@ export default async function gatewayRequestGet(
 
    // Send the auth header to the microservice in order to access the user's uid and thus their data in firestore:
    const authHeader = req.headers.authorization;
-   if (!authHeader) {
-      return res
-         .status(resCodes.BAD_REQUEST.code)
-         .send(`${resCodes.BAD_REQUEST.prefix}: Missing Authorization Header`);
+   if (serviceReqObj.los > 0) {
+      if (!authHeader) {
+         return res
+            .status(resCodes.BAD_REQUEST.code)
+            .send(`${resCodes.BAD_REQUEST.prefix}: Missing Authorization Header`);
+      }
+      header.append('Authorization', authHeader);
    }
-   header.append('Authorization', authHeader);
 
    // Send the request to the microservice:
    try {

@@ -18,7 +18,7 @@ export default async function gatewayRequestPost(
    }
 
    //Check which microservice to send the request to:
-   const serviceForLocalTesting = 'deleteExpense';
+   const serviceForLocalTesting = 'registerUser';
    const serviceReq = isRunningLocally()
       ? serviceForLocalTesting
       : (req.headers.microservice as string);
@@ -33,12 +33,14 @@ export default async function gatewayRequestPost(
 
    // Send the auth header to the microservice in order to access the user's uid and thus their data in firestore:
    const authHeader = req.headers.authorization;
-   if (!authHeader) {
-      return res
-         .status(resCodes.BAD_REQUEST.code)
-         .send(`${resCodes.BAD_REQUEST.prefix}: Missing Authorization Header`);
+   if (serviceReqObj.los > 0) {
+      if (!authHeader) {
+         return res
+            .status(resCodes.BAD_REQUEST.code)
+            .send(`${resCodes.BAD_REQUEST.prefix}: Missing Authorization Header`);
+      }
+      header.append('Authorization', authHeader);
    }
-   header.append('Authorization', authHeader);
 
    // Send the request to the microservice:
    try {
@@ -48,6 +50,7 @@ export default async function gatewayRequestPost(
          headers: header,
       });
       const data = await response.json();
+      console.log(data);
       if (!response.ok) {
          return res.status(response.status).send(data);
       }
