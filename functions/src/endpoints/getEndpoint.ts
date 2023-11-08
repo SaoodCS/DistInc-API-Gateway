@@ -1,7 +1,6 @@
 import type * as express from 'express';
 import fetch, { Headers } from 'node-fetch';
 import ArrayOfObjects from '../helpers/dataTypes/arrayOfObjects/arrayOfObjects';
-import { isRunningLocally } from '../helpers/helpers';
 import type { IMicroservices } from '../utils/Microservices';
 import microservices from '../utils/Microservices';
 import { resCodes } from './../utils/resCode';
@@ -11,10 +10,8 @@ export default async function gatewayRequestGet(
    res: express.Response,
 ): Promise<express.Response> {
    //Check which microservice to send the request to:
-   const serviceForLocalTesting = 'deleteSavingsAccount';
-   const serviceReq = isRunningLocally()
-      ? serviceForLocalTesting
-      : (req.headers.microservice as string);
+
+   const serviceReq = req.headers.microservice as string;
    const serviceReqObj = ArrayOfObjects.objectWithVal(microservices, serviceReq) as IMicroservices;
    const serviceUrl = serviceReqObj.url;
 
@@ -50,3 +47,9 @@ export default async function gatewayRequestGet(
       return res.status(resCodes.INTERNAL_SERVER.code).send(error);
    }
 }
+
+// -- Prior way of setting up const serviceReq -- //: //: (NO LONGER NEEDED AS WORKS CORRECTLY LOCALLY WITHOUT IT)
+// const serviceForLocalTesting = 'deleteSavingsAccount';
+// const serviceReq = isRunningLocally()
+//    ? serviceForLocalTesting
+//    : (req.headers.microservice as string);
