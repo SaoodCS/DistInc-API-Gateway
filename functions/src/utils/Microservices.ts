@@ -36,6 +36,9 @@ const microservices: IMicroservices[] = [
       url: process.env.DELETE_CALCULATIONS_SERVICE_ENDPOINT!,
       los: 1,
    },
+   {
+      service: 'setFcmToken', url: process.env.SET_FCM_TOKEN_SERVICE_ENDPOINT!, los: 1,
+   }
 ];
 
 export default microservices;
