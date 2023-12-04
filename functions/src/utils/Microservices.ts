@@ -37,24 +37,18 @@ const microservices: IMicroservices[] = [
       los: 1,
    },
    {
-      service: 'setFcmToken',
-      url: process.env.SET_FCM_TOKEN_SERVICE_ENDPOINT!,
-      los: 1,
-   },
-
-   {
-      service: 'deleteNotifSchedule',
-      url: process.env.DELETE_NOTIF_SCHEDULE_SERVICE_ENDPOINT!,
+      service: 'deleteNotifSettings',
+      url: process.env.DELETE_NOTIF_SETTINGS_SERVICE_ENDPOINT!,
       los: 1,
    },
    {
-      service: 'setNotifSchedule',
-      url: process.env.SET_NOTIF_SCHEDULE_SERVICE_ENDPOINT!,
+      service: 'setNotifSettings',
+      url: process.env.SET_NOTIF_SETTINGS_SERVICE_ENDPOINT!,
       los: 1,
    },
    {
-      service: 'getNotifSchedule',
-      url: process.env.GET_NOTIF_SCHEDULE_SERVICE_ENDPOINT!,
+      service: 'getNotifSettings',
+      url: process.env.GET_NOTIF_SETTINGS_SERVICE_ENDPOINT!,
       los: 1,
    },
 ];
