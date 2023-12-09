@@ -7,4 +7,6 @@ export const authorisedDomains = [
    'https://distinc-9ad9d.firebaseapp.com',
    'https://distinc-dev.web.app',
    'https://distinc-dev.firebaseapp.com',
+   'https://distinc.co.uk',
+   'https://www.distinc.co.uk',
 ];
