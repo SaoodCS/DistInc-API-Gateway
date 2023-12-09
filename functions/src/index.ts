@@ -14,6 +14,6 @@ app.use(Middleware.verifyAuthToken);
 app.post('/gatewayRequestPost', gatewayRequestPost);
 app.get('/gatewayRequestGet', gatewayRequestGet);
 
-// Export the API to Firebase Cloud Functions:
+// Export Microservice:
 const apiGateway = functions.https.onRequest(app);
 export { apiGateway };
