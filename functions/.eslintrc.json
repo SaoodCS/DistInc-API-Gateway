@@ -11,7 +11,7 @@
       "project": "./functions/tsconfig.json",
       "tsconfigRootDir": "./"
    },
-   "ignorePatterns": ["lib/", "node_modules/", "jest.config.js"],
+   "ignorePatterns": ["lib/", "node_modules/", "jest.config.js", "src/helpers/nodeScripts"],
    "plugins": ["@typescript-eslint", "unused-imports", "import", "prettier", "security"],
    "extends": [
       "eslint:recommended",

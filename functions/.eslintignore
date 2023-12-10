@@ -1,4 +1,4 @@
 .gitignore
 /lib
 jest.config.js
-src\helpers\nodeScripts
+/src/helpers/nodeScripts
