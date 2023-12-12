@@ -1,13 +1,14 @@
 {
   "scripts": {
+    "build": "cd functions && npm run build",
     "serve-dev": "cd functions && npm run serve-dev",
     "serve-prod": "cd functions && npm run serve-prod",
     "serve-dev-to-local": "cd functions && npm run serve-dev-to-local",
     "serve-prod-to-local": "cd functions && npm run serve-prod-to-local",
     "serve-dev-to-deployed": "cd functions && npm run serve-dev-to-deployed",
     "serve-prod-to-deployed": "cd functions && npm run serve-prod-to-deployed",
-    "deploy-dev": "cd functions && del .env && type .env.deploydev > .env && npm run build && firebase deploy --project distinc-dev --only functions:apiGateway",
-    "deploy-prod": "cd functions && del .env && type .env.deployprod > .env && npm run build && firebase deploy --project distinc-9ad9d --only functions:apiGateway",
+    "deploy-dev": "cd functions && npm run deploy-dev",
+    "deploy-prod": "cd functions && npm run deploy-prod",
     "prettify": "cd functions && npm run prettify",
     "lint-ts": "cd functions && npm run lint-and-ts-errors",
     "lint-fix": "cd functions && npm run lint-fix",
