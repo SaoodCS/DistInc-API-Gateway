@@ -13,7 +13,21 @@ export default async function gatewayRequestGet(
 
    const serviceReq = req.headers.microservice as string;
    const serviceReqObj = ArrayOfObjects.objectWithVal(microservices, serviceReq) as IMicroservices;
+   if (!serviceReqObj) {
+      return res
+         .status(resCodes.BAD_REQUEST.code)
+         .send(
+            `${resCodes.INTERNAL_SERVER.code}: Microservice requested does not match the microservices in the gateway. Either the microservice requested is not added correctly in the gateway or the client has not sent the microservice correctly`,
+         );
+   }
    const serviceUrl = serviceReqObj.url;
+   if (!serviceUrl) {
+      return res
+         .status(resCodes.INTERNAL_SERVER.code)
+         .send(
+            `${resCodes.INTERNAL_SERVER.prefix}: Requested Microservice does not have a valid URL in the gateway. This likely is due to the env variable not added correctly to the microservice array in the gateway`,
+         );
+   }
 
    // Grab the APIKey from the env variables and add it to the header of the request:
    const apiKey = process.env.API_KEY as string;
