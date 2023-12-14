@@ -26,7 +26,7 @@
 
 ## About
 
-This is the API Gateway for the Distinc application. It is responsible for routing requests to the appropriate microservice, and for handling authorisation.
+This is the API Gateway for the Distinc application. It is responsible for routing requests to the appropriate microservice and for handling authorisation.
 
 Distinc serves as a comprehensive financial management tool, enabling users to effortlessly track expenses, monitor balances across multiple bank accounts, set account-specific targets, and calculate monthly income distribution among accounts.
 
