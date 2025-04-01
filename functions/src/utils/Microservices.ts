@@ -23,6 +23,13 @@ const microservices: IMicroservices[] = [
       url: process.env.DELETE_CURRENTACCOUNT_SERVICE_ENDPOINT!,
       los: 1,
    },
+   { service: 'setCreditAccount', url: process.env.SET_CREDITACCOUNT_SERVICE_ENDPOINT!, los: 1 },
+   { service: 'getCreditAccount', url: process.env.GET_CREDITACCOUNT_SERVICE_ENDPOINT!, los: 1 },
+   {
+      service: 'deleteCreditAccount',
+      url: process.env.DELETE_CREDITACCOUNT_SERVICE_ENDPOINT!,
+      los: 1,
+   },
    { service: 'setIncome', url: process.env.SET_INCOME_SERVICE_ENDPOINT!, los: 1 },
    { service: 'getIncomes', url: process.env.GET_INCOME_SERVICE_ENDPOINT!, los: 1 },
    { service: 'deleteIncome', url: process.env.DELETE_INCOME_SERVICE_ENDPOINT!, los: 1 },
