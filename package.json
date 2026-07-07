@@ -9,6 +9,8 @@
     "serve-prod-to-deployed": "cd functions && npm run serve-prod-to-deployed",
     "deploy-dev": "cd functions && npm run deploy-dev",
     "deploy-prod": "cd functions && npm run deploy-prod",
+    "deploy-dev-cicd": "cd functions && npm run deploy-dev-cicd",
+    "deploy-prod-cicd": "cd functions && npm run deploy-prod-cicd",
     "prettify": "cd functions && npm run prettify",
     "lint-ts": "cd functions && npm run lint-and-ts-errors",
     "lint-fix": "cd functions && npm run lint-fix",
